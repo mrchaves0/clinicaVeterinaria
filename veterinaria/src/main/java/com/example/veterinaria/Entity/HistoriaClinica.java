@@ -30,4 +30,6 @@ public class HistoriaClinica {
     @OneToOne
     @JoinColumn(name = "mascota_id")
     private Mascota mascota;
+
+
 }

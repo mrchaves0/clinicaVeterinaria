@@ -1,10 +1,15 @@
+
 package com.example.veterinaria.Service;
 
 import com.example.veterinaria.Entity.HistoriaClinica;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
 public interface HistoriaClinicaService {
+
+    void eliminar(Long id);
 
     List<HistoriaClinica> listarTodos();
 
@@ -14,5 +19,6 @@ public interface HistoriaClinicaService {
 
     HistoriaClinica actualizar( long id,HistoriaClinica historia);
 
-    void eliminar(long id);
+
+
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface MascotaService {
 
-    List<Mascota> listarTodos();
+    List<Mascota> listarTodas();
 
     Mascota buscarPorId(long id);
 
