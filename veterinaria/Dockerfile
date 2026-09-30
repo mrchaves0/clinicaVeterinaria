@@ -1,14 +1,15 @@
-# Usamos una imagen oficial de Maven con Java 21 para compilar el proyecto
+# Etapa de compilación usando Maven Wrapper
 FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
 
-# Copiamos todo el contenido de la carpeta de tu proyecto
-COPY .. .
+# Copiamos todo el contenido (ahora que Render tiene el Root Directory en 'veterinaria/')
+COPY . .
 
-# Compilamos el proyecto usando maven directamente (asegúrate de mover el pom.xml a la raíz o ajustar la ruta)
-RUN mvn clean package -DskipTests
+# Damos permisos de ejecución al Maven Wrapper y compilamos
+RUN chmod +x ./mvnw
+RUN ./mvnw clean package -DskipTests
 
-# Creamos la imagen final ligera para correr la aplicación
+# Etapa final para correr la aplicación ligera
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
